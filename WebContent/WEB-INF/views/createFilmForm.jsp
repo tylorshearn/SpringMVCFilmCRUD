@@ -14,9 +14,20 @@
 		<b>Description:</b>
 		<input type="text" name="description" size="4"/> 
 		<b>Release year:</b>
-		<input type="number" name="releaseYear" size="4"/><br> 
-		<br><b>Language ID:<br>("1"= English, "2"= Italian, "3"= Japanese, "4"= Mandarin, "5"= French, "6"= German)</b>
-		<input type="text" name="languageId" size="4"/><br> 
+		<input type="number" name="releaseYear" size="4"/><br>  
+		<br><b>Language:</b>
+		<br><input type="radio" id="1" name="languageId" value="1">
+		<label for="1"><b>English</b></label><br>
+		<input type="radio" id="2" name="languageId" value="2">
+		<label for="2"><b>Italian</b></label><br>
+		<input type="radio" id="3" name="languageId" value="3">
+		<label for="3"><b>Japanese</b></label><br>
+		<input type="radio" id="4" name="languageId" value="4">
+		<label for="4"><b>Mandarin</b></label><br>
+		<input type="radio" id="5" name="languageId" value="5">
+		<label for="5"><b>French</b></label><br>	
+		<input type="radio" id="6" name="languageId" value="6">
+		<label for="6"><b>German</b></label><br>	
 		<br><b>Rental Duration:<br>(# of days)</b>
 		<input type="number" name="rentalDuration" size="4"/><br> 
 		<br><b>Rental Rate:<br>(Price of rental in dollar amount)</b>

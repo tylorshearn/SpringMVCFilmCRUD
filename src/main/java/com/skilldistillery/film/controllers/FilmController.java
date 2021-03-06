@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.dao.FilmDAO;
+import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
@@ -22,28 +24,45 @@ public class FilmController {
 	
 	@RequestMapping(path="/searchByFilmIdForm.do")
 	public String form1() {
-		// Add list of all films to model
 		return "searchByFilmIdForm";
 	}
 	
 	@RequestMapping(path="/createFilmForm.do")
 	public String form2() {
-		// Add list of all films to model
 		return "createFilmForm";
 	}
 	
 	@RequestMapping(path="/searchByKeyPatForm.do")
 	public String form3() {
-		// Add list of all films to model
 		return "searchByKeyPatForm";
 	}
 	
 	@RequestMapping(path= "getFilmByID.do", method = RequestMethod.GET)
-	public String getFilmByID(int filmId) {
+	public ModelAndView getFilmByID(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", filmDAO.findFilmById(filmId));
-		
+		mv.setViewName("filmResult");
+		return mv;
+	}
 	
-		return "result";
+	@RequestMapping(path= "getFilmByKeyword.do", method = RequestMethod.GET)
+	public ModelAndView getFilmsByKeyword(String keyword) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("films", filmDAO.findFilmByKeyword(keyword));
+		mv.setViewName("filmListResult");
+		return mv;
+	}
+	
+	@RequestMapping(path= "addFilm.do", method = RequestMethod.POST)
+	public String addFilm(Film film, RedirectAttributes redir) {
+		redir.addFlashAttribute("films", filmDAO.createFilm(film));
+		return "redirect:filmAdd.do";
+	}
+	
+	@RequestMapping("filmAdd.do")
+	public ModelAndView addFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("filmResult");
+		return mv;
 	}
 }

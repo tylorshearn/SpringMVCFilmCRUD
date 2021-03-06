@@ -10,7 +10,21 @@
 </head>
 <body>
 
-<h1>Welcome to the Film Site</h1>
+<h1>Welcome To Our Film Site!</h1>
+
+<p> To view a film's details in full, please select <em>"Search by Film ID"</em><br>
+
+<br>If you'd like to create a film of your own and add it to our list, please select <em>"Create a Film"</em><br>
+	
+<br>Last but not least, to search for a film by keyword or pattern within the title, or description, please select <em>"Search by Keyword/Pattern"</em><br>
+	
+	<br><a href="searchByFilmId">Search by Film ID</a><br>
+	
+	<br><a href="createFilm">Create a Film</a><br>
+	
+	<br><a href="searchByKeyPat">Search by Keyword/Pattern</a>
+	
+	
 
 </body>
 </html>

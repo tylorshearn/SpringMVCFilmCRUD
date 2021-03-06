@@ -37,15 +37,16 @@ public class FilmController {
 		return "searchByKeyPatForm";
 	}
 	
-	@RequestMapping(path= "getFilmByID.do", method = RequestMethod.GET)
+	@RequestMapping(path= "/getFilmByID.do", method = RequestMethod.GET)
 	public ModelAndView getFilmByID(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", filmDAO.findFilmById(filmId));
+		mv.addObject("get");
 		mv.setViewName("filmResult");
 		return mv;
 	}
 	
-	@RequestMapping(path= "getFilmByKeyword.do", method = RequestMethod.GET)
+	@RequestMapping(path= "/getFilmByKeyword.do", method = RequestMethod.GET)
 	public ModelAndView getFilmsByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("films", filmDAO.findFilmByKeyword(keyword));
@@ -53,14 +54,43 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path= "addFilm.do", method = RequestMethod.POST)
+	@RequestMapping(path= "/addFilm.do", method = RequestMethod.POST)
 	public String addFilm(Film film, RedirectAttributes redir) {
-		redir.addFlashAttribute("films", filmDAO.createFilm(film));
+		redir.addFlashAttribute("film", filmDAO.createFilm(film));
 		return "redirect:filmAdd.do";
 	}
 	
-	@RequestMapping("filmAdd.do")
+	@RequestMapping("/filmAdd.do")
 	public ModelAndView addFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("add");
+		mv.setViewName("filmResult");
+		return mv;
+	}
+	
+	@RequestMapping(path= "/deleteFilm.do", method = RequestMethod.POST)
+	public String deleteFilm(int filmId, RedirectAttributes redir) {
+		redir.addFlashAttribute("delete", filmDAO.deleteFilm(filmDAO.findFilmById(filmId)));
+		return "redirect:filmDelete.do";
+	}
+	
+	@RequestMapping("/filmDelete.do")
+	public ModelAndView deleteFilm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("filmResult");
+		return mv;
+	}
+	
+	//TODO complete the film update mapping below and form
+	
+	@RequestMapping(path= "/updateFilmInfo.do", method = RequestMethod.POST)
+	public String updateFilm(Film film, RedirectAttributes redir) {
+		redir.addFlashAttribute("filmUpdate", filmDAO.updateFilm(film));
+		return "redirect:filmUpdate.do";
+	}
+	
+	@RequestMapping("/filmUpdate.do")
+	public ModelAndView updateFilm() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("filmResult");
 		return mv;

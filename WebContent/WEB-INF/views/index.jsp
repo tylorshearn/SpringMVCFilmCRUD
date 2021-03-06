@@ -18,11 +18,11 @@
 	
 <br>Last but not least, to search for a film by keyword or pattern within the title, or description, please select <em>"Search by Keyword/Pattern"</em><br>
 	
-	<br><a href="searchByFilmIdForm.jsp">Search by Film ID</a><br>
+	<br><a href="searchByFilmIdForm.do">Search by Film ID</a><br>
 	
-	<br><a href="createFilmForm.jsp">Create a Film</a><br>
+	<br><a href="createFilmForm.do">Create a Film</a><br>
 	
-	<br><a href="searchByKeyPatForm.jsp">Search by Keyword/Pattern</a>
+	<br><a href="searchByKeyPatForm.do">Search by Keyword/Pattern</a>
 	
 	
 

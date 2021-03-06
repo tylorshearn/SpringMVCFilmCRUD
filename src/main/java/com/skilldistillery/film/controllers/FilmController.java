@@ -20,6 +20,24 @@ public class FilmController {
 		return "index";
 	}
 	
+	@RequestMapping(path="/searchByFilmIdForm.do")
+	public String form1() {
+		// Add list of all films to model
+		return "searchByFilmIdForm";
+	}
+	
+	@RequestMapping(path="/createFilmForm.do")
+	public String form2() {
+		// Add list of all films to model
+		return "createFilmForm";
+	}
+	
+	@RequestMapping(path="/searchByKeyPatForm.do")
+	public String form3() {
+		// Add list of all films to model
+		return "searchByKeyPatForm";
+	}
+	
 	@RequestMapping(path= "getFilmByID.do", method = RequestMethod.GET)
 	public String getFilmByID(int filmId) {
 		ModelAndView mv = new ModelAndView();

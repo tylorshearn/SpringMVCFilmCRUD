@@ -9,8 +9,8 @@
 <body>
 <h3>Find your film by its ID</h3>
 	<form action="getFilmByID.do" method="GET">
-		<b>Enter an ID:</b>
-		<input type="text" name="filmId" size="4"/> 
+		<b>Enter an ID:<br>(0-2000)</b>
+		<input type="number" name="filmId" size="4" min=0 max =2000 oninput="validity.valid||(value='');"/> 
 		<input type="submit" value="Search" />
 	</form>
 </body>

@@ -31,11 +31,11 @@
 		<br><b>Rental Duration:<br>(# of days)</b>
 		<input type="number" name="rentalDuration" size="4"/><br> 
 		<br><b>Rental Rate:<br>(Price of rental in dollar amount)</b>
-		<input type="number" name="rentalRate" size="4"/><br> 
+		<input type="number" step="0.01" name="rentalRate" size="4"/><br> 
 		<br><b>Length:<br>(In minutes)</b>
 		<input type="number" name="length" size="4"/><br> 
 		<br><b>Replacement Cost:<br>(Price of replacement in dollar amount)</b>
-		<input type="number" name="replacementCost" size="4"/><br> 
+		<input type="number" step="0.01" name="replacementCost" size="4"/><br> 
 		<br><b>Rating:</b>
 		<br><input type="radio" id="G" name="rating" value="G">
 		<label for="G"><b>G</b></label><br>
@@ -48,7 +48,14 @@
 		<input type="radio" id="NC17" name="rating" value="NC17">
 		<label for=""><b>NC17</b></label><br>	
 		<br><b>Special Features:</b>
-		<input type="text" name="specialFeatures" size="4"/><br> 
+		<br><input type="checkbox" id="Trailers" name="specialFatures" value="Trailers">
+		<label for="Trailers"> <b>Trailers</b></label><br>
+		<input type="checkbox" id="Commentaries" name="specialFeatures" value="Commentaries">
+		<label for="Commentaries"> <b>Commentaries</b></label><br>
+		<input type="checkbox" id="Deleted Scenes" name="specialFeatures" value="Deleted Scenes">
+		<label for="Deleted Scenes"> <b>Deleted Scenes</b></label><br>
+		<input type="checkbox" id="Behind the Scenes" name="specialFeatures" value="Behind the Scenes">
+		<label for="Behind the Scenes"> <b>Behind the Scenes</b></label><br>
 		<br><input type="submit" value="Create" />
 	</form>
 </body>

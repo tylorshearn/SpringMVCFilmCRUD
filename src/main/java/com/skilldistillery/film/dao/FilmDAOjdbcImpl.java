@@ -18,7 +18,7 @@ import com.skilldistillery.film.entities.Film;
 public class FilmDAOjdbcImpl implements FilmDAO {
 
 
-	private static final String URL = "jdbc:mysql://localhost:3307/sdvid?useSSL=false";
+	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
 	private static String username = "student";
 	private static String password = "student";
 

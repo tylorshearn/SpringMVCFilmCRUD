@@ -46,7 +46,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path= "/getFilmByKeyword.do", method = RequestMethod.GET)
+	@RequestMapping(path= "/searchByKeyPat.do", method = RequestMethod.GET)
 	public ModelAndView getFilmsByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("films", filmDAO.findFilmByKeyword(keyword));
@@ -54,7 +54,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path= "/addFilm.do", method = RequestMethod.POST)
+	@RequestMapping(path= "/createFilm.do", method = RequestMethod.POST)
 	public String addFilm(Film film, RedirectAttributes redir) {
 		redir.addFlashAttribute("film", filmDAO.createFilm(film));
 		return "redirect:filmAdd.do";

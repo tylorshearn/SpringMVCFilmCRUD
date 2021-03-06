@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty film && ! empty get}">
+		<c:when test="${! empty film}">
 			<table>
 				<thead>
 					<tr>

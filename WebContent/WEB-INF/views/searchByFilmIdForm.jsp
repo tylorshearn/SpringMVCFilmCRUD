@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Searching by ID</title>
 </head>
 <body>
-<p>TEST</p>
+<h3>Find your film by its ID</h3>
+	<form action="getFilmByID.do" method="GET">
+		<b>Enter an ID:</b>
+		<input type="text" name="abbr" size="4"/> 
+		<input type="submit" value="Search" />
+	</form>
 </body>
 </html>

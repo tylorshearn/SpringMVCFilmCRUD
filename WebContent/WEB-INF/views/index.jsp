@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1>Welcome To Our Film Site!</h1>
+<h1>Welcome to our film site!</h1>
 
 <p> To view a film's details in full, please select <em>"Search by Film ID"</em><br>
 

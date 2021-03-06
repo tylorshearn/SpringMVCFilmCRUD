@@ -26,7 +26,16 @@
 		<br><b>Replacement Cost:<br>(Price of replacement in dollar amount)</b>
 		<input type="number" name="replacementCost" size="4"/><br> 
 		<br><b>Rating:</b>
-		<input type="text" name="rating" size="4"/><br> 
+		<br><input type="radio" id="G" name="rating" value="G">
+		<label for="G"><b>G</b></label><br>
+		<input type="radio" id="PG" name="rating" value="PG">
+		<label for="PG"><b>PG</b></label><br>
+		<input type="radio" id="PG13" name="rating" value="PG13">
+		<label for="PG13"><b>PG13</b></label><br>
+		<input type="radio" id="R" name="rating" value="R">
+		<label for="R"><b>R</b></label><br>
+		<input type="radio" id="NC17" name="rating" value="NC17">
+		<label for=""><b>NC17</b></label><br>	
 		<br><b>Special Features:</b>
 		<input type="text" name="specialFeatures" size="4"/><br> 
 		<br><input type="submit" value="Create" />

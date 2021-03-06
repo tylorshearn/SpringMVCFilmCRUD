@@ -10,11 +10,11 @@
 <h3>Create your film</h3>
 	<form action="createFilm.do" method="POST">
 		<b>Title:</b>
-		<input type="text" name="title" size="4"/> 
-		<b>Description:</b>
-		<input type="text" name="description" size="4"/> 
-		<b>Release year:</b>
-		<input type="number" name="releaseYear" size="4"/><br>  
+		<input type="text" name="title" min=0 oninput="validity.valid||(value='');" size="20"/><br> 
+		<br><b>Description:</b>
+		<input type="text" name="description" min=0 oninput="validity.valid||(value='');" size="50"/><br> 
+		<br><b>Release year:</b>
+		<input type="number" name="releaseYear" min=0 oninput="validity.valid||(value='');" size="4"/><br>  
 		<br><b>Language:</b>
 		<br><input type="radio" id="1" name="languageId" value="1">
 		<label for="1"><b>English</b></label><br>
@@ -29,13 +29,13 @@
 		<input type="radio" id="6" name="languageId" value="6">
 		<label for="6"><b>German</b></label><br>	
 		<br><b>Rental Duration:<br>(# of days)</b>
-		<input type="number" name="rentalDuration" size="4"/><br> 
+		<input type="number" name="rentalDuration" min=0 oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Rental Rate:<br>(Price of rental in dollar amount)</b>
-		<input type="number" step="0.01" name="rentalRate" size="4"/><br> 
+		<input type="number" step="0.01" name="rentalRate" min=0 oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Length:<br>(In minutes)</b>
-		<input type="number" name="length" size="4"/><br> 
+		<input type="number" name="length" min=0 oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Replacement Cost:<br>(Price of replacement in dollar amount)</b>
-		<input type="number" step="0.01" name="replacementCost" size="4"/><br> 
+		<input type="number" step="0.01" name="replacementCost" min=0 oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Rating:</b>
 		<br><input type="radio" id="G" name="rating" value="G">
 		<label for="G"><b>G</b></label><br>

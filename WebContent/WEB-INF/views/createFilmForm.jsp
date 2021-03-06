@@ -9,8 +9,6 @@
 <body>
 <h3>Create your film</h3>
 	<form action="createFilm.do" method="POST">
-		<b>ID:</b>
-		<input type="number" name="filmId" size="4"/> 
 		<b>Title:</b>
 		<input type="text" name="title" size="4"/> 
 		<b>Description:</b>

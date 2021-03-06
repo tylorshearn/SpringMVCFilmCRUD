@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -38,10 +39,10 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path= "/getFilmByID.do", method = RequestMethod.GET)
-	public ModelAndView getFilmByID(int filmId) {
+	public ModelAndView getFilmByID(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", filmDAO.findFilmById(filmId));
-		mv.addObject("get");
+		mv.addObject("get", true);
 		mv.setViewName("filmResult");
 		return mv;
 	}
@@ -56,14 +57,16 @@ public class FilmController {
 	
 	@RequestMapping(path= "/createFilm.do", method = RequestMethod.POST)
 	public String addFilm(Film film, RedirectAttributes redir) {
+		System.out.println("in create!");
 		redir.addFlashAttribute("film", filmDAO.createFilm(film));
+		System.out.println(film);
 		return "redirect:filmAdd.do";
 	}
 	
-	@RequestMapping("/filmAdd.do")
+	@RequestMapping("filmAdd.do")
 	public ModelAndView addFilm() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("add");
+		mv.addObject("add", true);
 		mv.setViewName("filmResult");
 		return mv;
 	}
@@ -74,9 +77,10 @@ public class FilmController {
 		return "redirect:filmDelete.do";
 	}
 	
-	@RequestMapping("/filmDelete.do")
+	@RequestMapping("filmDelete.do")
 	public ModelAndView deleteFilm() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("deleteFunc", true);
 		mv.setViewName("filmResult");
 		return mv;
 	}
@@ -85,13 +89,14 @@ public class FilmController {
 	
 	@RequestMapping(path= "/updateFilmInfo.do", method = RequestMethod.POST)
 	public String updateFilm(Film film, RedirectAttributes redir) {
-		redir.addFlashAttribute("filmUpdate", filmDAO.updateFilm(film));
+		redir.addFlashAttribute("update", filmDAO.updateFilm(film));
 		return "redirect:filmUpdate.do";
 	}
 	
 	@RequestMapping("/filmUpdate.do")
 	public ModelAndView updateFilm() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("updateFunc", true);
 		mv.setViewName("filmResult");
 		return mv;
 	}

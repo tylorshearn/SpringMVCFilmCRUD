@@ -3,7 +3,7 @@ package com.skilldistillery.film.entities;
 import java.util.List;
 
 public class Film {
-	private int filmId, languageID, rentalDuration, length;
+	private int filmId, languageId, rentalDuration, length;
 	private double rentalRate, replacementCost;
 	private String title, description, rating, specialFeatures, language;
 	private Integer releaseYear;
@@ -11,11 +11,11 @@ public class Film {
 	
 	public Film() {}
 	
-	public Film(int id, int languageID, int rentalDuration, int length, double rentalRate, double replacementCost,
+	public Film(int id, int languageId, int rentalDuration, int length, double rentalRate, double replacementCost,
 			String title, String description, String rating, String specialFeatures, Integer releaseYear, List<Actor> actorsList, String language) {
 		super();
 		this.filmId = id;
-		this.languageID = languageID;
+		this.languageId = languageId;
 		this.rentalDuration = rentalDuration;
 		this.length = length;
 		this.rentalRate = rentalRate;
@@ -54,12 +54,12 @@ public class Film {
 		this.actorsList = actorsList;
 	}
 
-	public int getLanguageID() {
-		return languageID;
+	public int getLanguageId() {
+		return languageId;
 	}
 
-	public void setLanguageID(int languageID) {
-		this.languageID = languageID;
+	public void setLanguageId(int languageId) {
+		this.languageId = languageId;
 	}
 
 	public int getRentalDuration() {
@@ -140,7 +140,7 @@ public class Film {
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + filmId;
-		result = prime * result + languageID;
+		result = prime * result + languageId;
 		result = prime * result + length;
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
 		result = prime * result + ((releaseYear == null) ? 0 : releaseYear.hashCode());
@@ -171,7 +171,7 @@ public class Film {
 			return false;
 		if (filmId != other.filmId)
 			return false;
-		if (languageID != other.languageID)
+		if (languageId != other.languageId)
 			return false;
 		if (length != other.length)
 			return false;
@@ -216,7 +216,7 @@ public class Film {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Film [id=").append(filmId).append(", title=").append(title).append(", description=")
 				.append(description).append(", releaseYear=").append(releaseYear).append(", languageID=")
-				.append(languageID).append(", language=").append(language).append(", rentalDuration=").append(rentalDuration).append(", rentalRate=")
+				.append(languageId).append(", language=").append(language).append(", rentalDuration=").append(rentalDuration).append(", rentalRate=")
 				.append(rentalRate).append(", length=").append(length).append(", replacementCost=")
 				.append(replacementCost).append(", rating=").append(rating).append(", specialFeatures=")
 				.append(specialFeatures).append("]");

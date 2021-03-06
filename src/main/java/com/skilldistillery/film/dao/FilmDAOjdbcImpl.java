@@ -120,8 +120,8 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 	public Film createFilm(Film film) {
 		Film addFilm = null;
 
-		String sqltxt = "INSERT INTO film (title, description, release_year, language_id, length)"
-				+ "VALUES (?,?,?,?,?) ";
+		String sqltxt = "INSERT INTO film (title, description, release_year, language_id, length, rental_rate, replacement_cost, rental_duration, rating, special_features)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?) ";
 
 		Connection conn = null;
 
@@ -133,8 +133,13 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 			st.setString(1, film.getTitle());
 			st.setString(2, film.getDescription());
 			st.setInt(3, film.getReleaseYear());
-			st.setInt(4, film.getLanguageID());
+			st.setInt(4, film.getLanguageId());
 			st.setInt(5, film.getLength());
+			st.setDouble(6, film.getRentalRate());
+			st.setDouble(7, film.getReplacementCost());
+			st.setInt(8, film.getRentalDuration());
+			st.setString(9, film.getRating());
+			st.setString(10, film.getSpecialFeatures());
 
 			int uc = st.executeUpdate();
 			conn.commit();
@@ -218,7 +223,7 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 			st.setString(1, film.getTitle());
 			st.setString(2, film.getDescription());
 			st.setInt(3, film.getReleaseYear());
-			st.setInt(4, film.getLanguageID());
+			st.setInt(4, film.getLanguageId());
 			st.setInt(5, film.getRentalDuration());
 			st.setDouble(6, film.getRentalRate());
 			st.setInt(7, film.getLength());

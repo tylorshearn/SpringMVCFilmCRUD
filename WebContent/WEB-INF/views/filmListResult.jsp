@@ -14,6 +14,8 @@
 			<li><a href="getFilmByID.do?filmId=${film.filmId}">ID: ${film.filmId} - ${film.title}</a></li>
 	</c:forEach>
 	</ol>
-
+<form action="home.do">
+		<input type="submit" value="Return Home" />
+	</form>
 </body>
 </html>

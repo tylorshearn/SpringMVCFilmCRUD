@@ -12,5 +12,5 @@ public interface FilmDAO {
 	  public List<Film> findFilmByKeyword(String keyword);
 	  public Film createFilm(Film film);
 	  public boolean deleteFilm(Film film);
-	  public boolean updateFilm(Film film);
+	  public Film updateFilm(Film film);
 }

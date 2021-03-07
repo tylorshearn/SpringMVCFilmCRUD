@@ -17,9 +17,12 @@
 						<th>Title</th>
 						<th>Release Year</th>
 						<th>Rating</th>
+						<th>Length</th>
 						<th>Language</th>
 						<th>Description</th>
+						<th>Special Features</th>
 						<th>Category</th>
+						<th>Rental Info</th>
 						<th>Actors</th>
 					</tr>
 				</thead>
@@ -29,13 +32,21 @@
 						<td>${film.title}</td>
 						<td>${film.releaseYear}</td>
 						<td>${film.rating}</td>
+						<td>${film.length} mins</td>
 						<td>${film.language}</td>
 						<td>${film.description}</td>
+						<td>${film.specialFeatures}</td>
 						<td>${film.category}</td>
-						<td><ul><c:forEach var="actor" items="${film.actorsList}">
-						<li>${actor.firstName} ${actor.lastName}</li>
-						</c:forEach>
-						</ul></td>
+						<td><ul>
+								<li>Duration: ${film.rentalDuration } days</li>
+								<li>Rate: $${film.rentalRate }</li>
+								<li>Replacement Cost: $${film.replacementCost }</li>
+							</ul></td>
+						<td><ul>
+								<c:forEach var="actor" items="${film.actorsList}">
+									<li>${actor.firstName}${actor.lastName}</li>
+								</c:forEach>
+							</ul></td>
 					</tr>
 				</tbody>
 			</table>
@@ -44,8 +55,9 @@
 				<input type="hidden" name="filmId" value="${film.filmId }" /> <input
 					type="submit" value="Delete Film from Database" />
 			</form>
-			<form action="updateFilmInfo.do?filmId=${film.filmId}">
-				<input type="submit" value="Update Film Information" />
+			<form action="updateFilmInfo.do" method="GET">
+				<input type="hidden" name="filmId" value="${film.filmId }" /> <input
+					type="submit" value="Update Film Information" />
 			</form>
 
 		</c:when>
@@ -84,20 +96,17 @@
 		<c:when test="${updateFunc == true}">
 
 			<c:choose>
-				<c:when test="${update == true}">
+				<c:when test="${! empty film}">
 					<p>Film successfully updated!</p>
-					<a href="getFilmByID.do?filmId=${film.filmId}">ID: ${film.filmId} - ${film.title}
-					</a>
+					<a href="getFilmByID.do?filmId=${film.filmId}">ID:
+						${film.filmId} - ${film.title} </a>
 					<br>
 				</c:when>
+				<c:otherwise>
+					<p>Film update failed. Film not updated in database.</p>
+				</c:otherwise>
 			</c:choose>
-			<c:otherwise>
-				<p>Film update failed. Film not updated in database.</p>
-Ï			</c:otherwise>
 
-			<form action="createFilmForm.do">
-				<input type="submit" value="Add another Film" />
-			</form>
 		</c:when>
 
 		<c:otherwise>

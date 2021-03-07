@@ -41,8 +41,10 @@ public class FilmController {
 	@RequestMapping(path= "/getFilmByID.do", method = RequestMethod.GET)
 	public ModelAndView getFilmByID(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(filmId);
 		mv.addObject("film", filmDAO.findFilmById(filmId));
 		mv.addObject("get", true);
+		System.out.println(filmDAO.findFilmById(filmId));
 		mv.setViewName("filmResult");
 		return mv;
 	}
@@ -88,7 +90,7 @@ public class FilmController {
 	//TODO complete the film update mapping below and form
 	
 	@RequestMapping(path= "/updateFilmInfo.do", method = RequestMethod.GET)
-	public ModelAndView updateFilm(@RequestParam("filmId") int filmId) {
+	public ModelAndView updateFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", filmDAO.findFilmById(filmId));
 		mv.setViewName("filmUpdate");
@@ -97,7 +99,7 @@ public class FilmController {
 	
 	@RequestMapping(path= "/updateFilm.do", method = RequestMethod.POST)
 	public String updateFilm(Film film, RedirectAttributes redir) {
-		redir.addFlashAttribute("update", filmDAO.updateFilm(film));
+		redir.addFlashAttribute("film", filmDAO.updateFilm(film));
 		return "redirect:filmUpdate.do";
 	}
 	

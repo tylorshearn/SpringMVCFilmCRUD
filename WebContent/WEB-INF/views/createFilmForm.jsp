@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>Create your film</h3>
-	<form action="updateFilm.do" method="POST">
+	<form action="createFilm.do" method="POST">
 		<b>Title:</b>
 		<input type="text" name="title" oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Description:</b>
@@ -49,7 +49,7 @@
 		<input type="radio" id="NC17" name="rating" value="NC17">
 		<label for=""><b>NC17</b></label><br>	
 		<br><b>Special Features:</b>
-		<br><input type="checkbox" id="Trailers" name="specialFatures" value="Trailers">
+		<br><input type="checkbox" id="Trailers" name="specialFeatures" value="Trailers">
 		<label for="Trailers"> <b>Trailers</b></label><br>
 		<input type="checkbox" id="Commentaries" name="specialFeatures" value="Commentaries">
 		<label for="Commentaries"> <b>Commentaries</b></label><br>

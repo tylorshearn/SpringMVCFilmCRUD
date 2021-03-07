@@ -34,7 +34,8 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 	public Film findFilmById(int filmId) {
 		Film film = null;
 		String sqltxt = "SELECT film.*, language.name, category.name FROM film JOIN language ON film.language_id = language.id "
-				+ " JOIN film_category ON film.id = film_category.film_id JOIN category ON film_category.category_id = category.id "
+				+ " LEFT OUTER JOIN film_category ON film.id = film_category.film_id "
+				+ " LEFT OUTER JOIN category ON film_category.category_id = category.id "
 				+ "WHERE film.id = ?";
 
 		try (Connection conn = DriverManager.getConnection(URL, username, password);
@@ -96,7 +97,7 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 	public List<Film> findFilmByKeyword(String keyword) {
 		List<Film> filmsList = new ArrayList<>();
 		Film film = null;
-		String sqltxt = "SELECT film.*, language.name " + "FROM film JOIN language ON film.language_id = language.id "
+		String sqltxt = "SELECT film.*, language.name " + "FROM film LEFT OUTER JOIN language ON film.language_id = language.id "
 				+ "WHERE title LIKE ? OR description LIKE ?";
 
 		try (Connection conn = DriverManager.getConnection(URL, username, password);
@@ -206,14 +207,14 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 	}
 
 	@Override
-	public boolean updateFilm(Film film) {
-
+	public Film updateFilm(Film film) {
+		System.out.println("what was sent to sql query" + film);
 		String sqltxt = "UPDATE film SET title=?, description=?, release_year=?, language_id=?,"
 				+ " rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=? "
 				+ "WHERE film.id = ?";
 
 		Connection conn = null;
-
+		
 		try {
 			conn = DriverManager.getConnection(URL, username, password);
 			conn.setAutoCommit(false); // Start transaction
@@ -232,27 +233,11 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 			st.setInt(11, film.getFilmId());
 
 			int uc = st.executeUpdate();
-
-			if (uc == 1) {
-				// Replace film's actors list
-				sqltxt = "DELETE FROM film_actor WHERE film_id = ?";
-				st = conn.prepareStatement(sqltxt);
-				st.setInt(1, film.getFilmId());
-				uc = st.executeUpdate();
-				sqltxt = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
-				st = conn.prepareStatement(sqltxt);
-				for (Actor actor : film.getActorsList()) {
-					st.setInt(1, film.getFilmId());
-					st.setInt(2, actor.getActorId());
-					uc = st.executeUpdate();
-				}
-				conn.commit();
-			}
-
+			conn.commit();
+			film = findFilmById(film.getFilmId());
+			System.out.println("after sql query" + film);
 			System.out.println(uc + " film record updated.");
-
-			st.close();
-			conn.close();
+			return film;
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -264,9 +249,8 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			return false;
+			return null;
 		}
-		return true;
 	}
 
 }

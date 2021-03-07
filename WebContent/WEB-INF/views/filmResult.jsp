@@ -44,13 +44,10 @@
 				<input type="hidden" name="filmId" value="${film.filmId }" /> <input
 					type="submit" value="Delete Film from Database" />
 			</form>
-			<form action="createFilmForm.do?film=${film}&update=true" method="POST">
+			<form action="updateFilmInfo.do?filmId=${film.filmId}">
 				<input type="submit" value="Update Film Information" />
 			</form>
 
-			<!-- 			<a href="home.do">Delete Film from Database</a>
-			<br>
-			<a href="home.do">Update Film Information</a> -->
 		</c:when>
 
 		<c:when test="${add == true}">
@@ -101,9 +98,6 @@
 			<form action="createFilmForm.do">
 				<input type="submit" value="Add another Film" />
 			</form>
-			<!-- 			<a href="home.do">Return to Homepage</a>
-			<br>
-			<a href="createFilmForm.do">Add another Film</a> -->
 		</c:when>
 
 		<c:otherwise>
@@ -111,9 +105,6 @@
 			<form action="searchByFilmIdForm.do">
 				<input type="submit" value="Complete another Search by Id" />
 			</form>
-			<!-- 			<a href="home.do">Return to Homepage</a>
-			<br>
-			<a href="searchByFilmIdForm.do">Complete another Search by ID</a> -->
 		</c:otherwise>
 	</c:choose>
 

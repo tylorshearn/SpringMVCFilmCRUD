@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,9 @@
 </head>
 <body>
 <h3>Create your film</h3>
-	<form action="createFilm.do" method="POST">
+	<form action="updateFilm.do" method="POST">
 		<b>Title:</b>
-		<input type="text"  name="title" oninput="validity.valid||(value='');" size="4"/><br> 
+		<input type="text" name="title" oninput="validity.valid||(value='');" size="4"/><br> 
 		<br><b>Description:</b>
 		<input type="text" name="description" min=0 oninput="validity.valid||(value='');" size="50"/><br> 
 		<br><b>Release year:<br>(0-2155)</b>

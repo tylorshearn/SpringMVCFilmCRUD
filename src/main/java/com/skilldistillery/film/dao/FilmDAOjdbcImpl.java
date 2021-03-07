@@ -33,7 +33,9 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 	@Override
 	public Film findFilmById(int filmId) {
 		Film film = null;
-		String sqltxt = "SELECT film.*, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
+		String sqltxt = "SELECT film.*, language.name, category.name FROM film JOIN language ON film.language_id = language.id "
+				+ " JOIN film_category ON film.id = film_category.film_id JOIN category ON film_category.category_id = category.id "
+				+ "WHERE film.id = ?";
 
 		try (Connection conn = DriverManager.getConnection(URL, username, password);
 				PreparedStatement prepStmt = conn.prepareStatement(sqltxt);) {
@@ -45,7 +47,7 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 						rs.getDouble("film.replacement_cost"), rs.getString("film.title"),
 						rs.getString("film.description"), rs.getString("film.rating"),
 						rs.getString("film.special_features"), rs.getInt("film.release_year"),
-						findActorsByFilmId(filmId), rs.getString("language.name"));
+						findActorsByFilmId(filmId), rs.getString("language.name"), rs.getString("category.name"));
 			}
 		} catch (SQLException e) {
 			System.err.println(e);
@@ -104,10 +106,7 @@ public class FilmDAOjdbcImpl implements FilmDAO {
 			ResultSet rs = prepStmt.executeQuery();
 			while (rs.next()) {
 				int filmId = rs.getInt("id");
-				film = new Film(filmId, rs.getInt("language_id"), rs.getInt("rental_duration"), rs.getInt("length"),
-						rs.getDouble("rental_rate"), rs.getDouble("replacement_cost"), rs.getString("title"),
-						rs.getString("description"), rs.getString("rating"), rs.getString("special_features"),
-						rs.getInt("release_year"), findActorsByFilmId(filmId), rs.getString("language.name"));
+				film = findFilmById(filmId);
 				filmsList.add(film);
 			}
 		} catch (SQLException e) {

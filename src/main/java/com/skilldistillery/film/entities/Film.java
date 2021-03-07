@@ -5,14 +5,14 @@ import java.util.List;
 public class Film {
 	private int filmId, languageId, rentalDuration, length;
 	private double rentalRate, replacementCost;
-	private String title, description, rating, specialFeatures, language;
+	private String title, description, rating, specialFeatures, language, category;
 	private Integer releaseYear;
 	private List<Actor> actorsList;
 	
 	public Film() {}
 	
 	public Film(int id, int languageId, int rentalDuration, int length, double rentalRate, double replacementCost,
-			String title, String description, String rating, String specialFeatures, Integer releaseYear, List<Actor> actorsList, String language) {
+			String title, String description, String rating, String specialFeatures, Integer releaseYear, List<Actor> actorsList, String language, String category) {
 		super();
 		this.filmId = id;
 		this.languageId = languageId;
@@ -27,9 +27,18 @@ public class Film {
 		this.releaseYear = releaseYear;
 		this.actorsList = actorsList;
 		this.language = language;
+		this.category = category;
 		
 	}
 	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public int getFilmId() {
 		return filmId;
 	}

@@ -19,6 +19,8 @@
 						<th>Rating</th>
 						<th>Language</th>
 						<th>Description</th>
+						<th>Category</th>
+						<th>Actors</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,6 +31,11 @@
 						<td>${film.rating}</td>
 						<td>${film.language}</td>
 						<td>${film.description}</td>
+						<td>${film.category}</td>
+						<td><ul><c:forEach var="actor" items="${film.actorsList}">
+						<li>${actor.firstName} ${actor.lastName}</li>
+						</c:forEach>
+						</ul></td>
 					</tr>
 				</tbody>
 			</table>
@@ -37,7 +44,7 @@
 				<input type="hidden" name="filmId" value="${film.filmId }" /> <input
 					type="submit" value="Delete Film from Database" />
 			</form>
-			<form action="updateFilmInfo.do">
+			<form action="createFilmForm.do?film=${film}&update=true" method="POST">
 				<input type="submit" value="Update Film Information" />
 			</form>
 

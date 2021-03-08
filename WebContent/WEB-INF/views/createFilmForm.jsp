@@ -10,14 +10,14 @@
 <body>
 <h3>Create your film</h3>
 	<form action="createFilm.do" method="POST">
-		<b>Title:</b>
-		<input type="text" name="title" oninput="validity.valid||(value='');" size="4"/><br> 
+		<b>Title*:</b>
+		<input type="text" name="title" oninput="validity.valid||(value='');" size="10" required="required"/><br> 
 		<br><b>Description:</b>
 		<input type="text" name="description" min=0 oninput="validity.valid||(value='');" size="50"/><br> 
-		<br><b>Release year:<br>(0-2155)</b>
-		<input type="number" name="releaseYear" min=0 max= 2155 oninput="validity.valid||(value='');" size="4"/><br> 
-		<br><b>Language:</b>
-		<br><input type="radio" id="1" name="languageId" value="1">
+		<br><b>Release year*:<br>(0-2155)</b>
+		<input type="number" name="releaseYear" min=0 max= 2155 oninput="validity.valid||(value='');" size="4" required="required"/><br> 
+		<br><b>Language*:</b>
+		<br><input type="radio" id="1" name="languageId" value="1" checked="checked">
 		<label for="1"><b>English</b></label><br>
 		<input type="radio" id="2" name="languageId" value="2">
 		<label for="2"><b>Italian</b></label><br>
@@ -28,17 +28,17 @@
 		<input type="radio" id="5" name="languageId" value="5">
 		<label for="5"><b>French</b></label><br>	
 		<input type="radio" id="6" name="languageId" value="6">
-		<label for="6"><b>German</b></label><br>	
-		<br><b>Rental Duration:<br># of days (0-127)</b>
-		<input type="number" name="rentalDuration" min=0 max=127 oninput="validity.valid||(value='');" size="4"/><br> 
-		<br><b>Rental Rate:<br>Price of rental in dollar amount(0-9.99)</b>
-		<input type="number" step="0.01" name="rentalRate" min=0 max=9.99 oninput="validity.valid||(value='');" size="4"/><br> 
-		<br><b>Length:<br>In minutes(0-999)</b>
-		<input type="number" name="length" min=0 max=999 oninput="validity.valid||(value='');" size="4"/><br> 
-		<br><b>Replacement Cost:<br>Price of replacement in dollar amount(0-29.99)</b>
-		<input type="number" step="0.01" name="replacementCost" min=0 max=29.99 oninput="validity.valid||(value='');" size="4"/><br> 
-		<br><b>Rating:</b>
-		<br><input type="radio" id="G" name="rating" value="G">
+		<label for="6"><b>German</b></label><br>		
+		<br><b>Rental Duration*:<br># of days (0-127)</b>
+		<input type="number" name="rentalDuration" min=0 max=127 oninput="validity.valid||(value='');" size="4" required="required"/><br> 
+		<br><b>Rental Rate*:<br>Price of rental in dollar amount(0-9.99)</b>
+		<input type="number" step="0.01" name="rentalRate" min=0 max=9.99 oninput="validity.valid||(value='');" size="4" required="required"/><br> 
+		<br><b>Length*:<br>In minutes(0-999)</b>
+		<input type="number" name="length" min=0 max=999 oninput="validity.valid||(value='');" size="4" required="required"/><br> 
+		<br><b>Replacement Cost*:<br>Price of replacement in dollar amount(0-29.99)</b>
+		<input type="number" step="0.01" name="replacementCost" min=0 max=29.99 oninput="validity.valid||(value='');" size="4" required="required"/><br> 
+		<br><b>Rating*:</b>
+		<br><input type="radio" id="G" name="rating" value="G" checked="checked">
 		<label for="G"><b>G</b></label><br>
 		<input type="radio" id="PG" name="rating" value="PG">
 		<label for="PG"><b>PG</b></label><br>
@@ -57,6 +57,7 @@
 		<label for="Deleted Scenes"> <b>Deleted Scenes</b></label><br>
 		<input type="checkbox" id="Behind the Scenes" name="specialFeatures" value="Behind the Scenes">
 		<label for="Behind the Scenes"> <b>Behind the Scenes</b></label><br>
+		*Required Field
 		<br><input type="submit" value="Create" />
 	</form>
 </body>

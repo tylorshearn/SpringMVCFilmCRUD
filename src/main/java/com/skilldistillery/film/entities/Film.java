@@ -3,15 +3,15 @@ package com.skilldistillery.film.entities;
 import java.util.List;
 
 public class Film {
-	private int filmId, languageId, rentalDuration, length;
-	private double rentalRate, replacementCost;
+	private int filmId;
+	private Double rentalRate, replacementCost;
 	private String title, description, rating, specialFeatures, language, category;
-	private Integer releaseYear;
+	private Integer releaseYear, languageId, rentalDuration, length;
 	private List<Actor> actorsList;
 	
 	public Film() {}
 	
-	public Film(int id, int languageId, int rentalDuration, int length, double rentalRate, double replacementCost,
+	public Film(int id, Integer languageId, Integer rentalDuration, Integer length, Double rentalRate, Double replacementCost,
 			String title, String description, String rating, String specialFeatures, Integer releaseYear, List<Actor> actorsList, String language, String category) {
 		super();
 		this.filmId = id;
@@ -67,7 +67,7 @@ public class Film {
 		return languageId;
 	}
 
-	public void setLanguageId(int languageId) {
+	public void setLanguageId(Integer languageId) {
 		this.languageId = languageId;
 	}
 
@@ -75,7 +75,7 @@ public class Film {
 		return rentalDuration;
 	}
 
-	public void setRentalDuration(int rentalDuration) {
+	public void setRentalDuration(Integer rentalDuration) {
 		this.rentalDuration = rentalDuration;
 	}
 
@@ -83,7 +83,7 @@ public class Film {
 		return length;
 	}
 
-	public void setLength(int length) {
+	public void setLength(Integer length) {
 		this.length = length;
 	}
 
@@ -91,7 +91,7 @@ public class Film {
 		return rentalRate;
 	}
 
-	public void setRentalRate(double rentalRate) {
+	public void setRentalRate(Double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
 
@@ -99,7 +99,7 @@ public class Film {
 		return replacementCost;
 	}
 
-	public void setReplacementCost(double replacementCost) {
+	public void setReplacementCost(Double replacementCost) {
 		this.replacementCost = replacementCost;
 	}
 

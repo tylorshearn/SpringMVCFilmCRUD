@@ -10,8 +10,12 @@
 <h3>Search for your film by a keyword or pattern in its title or description</h3>
 	<form action="searchByKeyPat.do" method="GET">
 		<b>Keyword or pattern:</b>
-		<input type="text" name="keyword" size="4"/> 
+		<input type="text" name="keyword" size="10" required="required"/> 
 		<input type="submit" value="Search" />
+	</form>
+	<br>
+	<form action="home.do">
+		<input type="submit" value="Return Home" />
 	</form>
 </body>
 </html>

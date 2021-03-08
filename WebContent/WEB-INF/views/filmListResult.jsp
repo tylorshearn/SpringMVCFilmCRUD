@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="<c:url value="/WEB-INF/views/filename.css" />" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Film List</title>
 </head>

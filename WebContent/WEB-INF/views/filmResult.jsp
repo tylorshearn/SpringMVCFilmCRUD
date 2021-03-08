@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<c:url value="/WEB-INF/views/filename.css" />" rel="stylesheet">
 <title>Film Info</title>
 </head>
 <body>

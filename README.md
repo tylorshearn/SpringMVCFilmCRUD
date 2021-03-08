@@ -30,4 +30,6 @@
 
  * It is good practice to limit user input to correlate with database limitations
 
+ * When splitting work, it is easier to complete test when each person is working on a form as well as its corresponding result page, instead of splitting work in other ways
+
  ### Thank you for reviewing our application

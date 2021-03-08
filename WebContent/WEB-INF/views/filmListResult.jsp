@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="<c:url value="./WEB-INF/views/Results.css" />" rel="stylesheet">
+<link href="<c:url value="Results.css" />" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Film List</title>
 </head>
